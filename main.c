@@ -126,6 +126,7 @@ int main(int argc, char** argv) {
 		puts("fseek with SEEK_END is broken on your system!\n");
 		exit(EXIT_MY_FAIL);
 	}
+	fclose(f);
 	do { bf_run(); program_idx++; } while (program_idx < program_size);
 	return 0;
 }
