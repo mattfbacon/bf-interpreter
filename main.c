@@ -111,6 +111,11 @@ int main(int argc, char** argv) {
 	fseek(f, 0, SEEK_END);
 	program_size = ftell(f);
 	program_buffer = malloc(program_size + 1);
+	if (!program_buffer) {
+		perror("While allocating program buffer");
+		puts("How big is your program??");
+		exit(EXIT_MY_FAIL);
+	}
 	program_buffer[program_size] = '\0';
 	rewind(f);
 	for (size_t i = 0; i < program_size + 1; i++) {
